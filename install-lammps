@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# This script is used  for installing/running/ploting grpahs for Lamps.
+# This script is used  for installing/running/ploting graphs for Lammps.
 # In this script for downlaoding update version I used git clone lamps from git repo and then install at user specified location.
 #
 #Software requirements for building lammps
@@ -54,7 +54,7 @@ softwarebuild() {
 	popd
 }
 
-#This function chechks whether Lamps already build or not, and ask whether we want to install again or not.
+#This function checks whether Lammps already build or not, and ask whether we want to install again or not.
 checksoftware() {
 	if [ -f $Exec ]; then  #check for  excuteable lmp in bin dir.
 		read -p "Lammps are alreday available at $Exec, do you want to rebuild (y/n)? " -n 1 -r
@@ -71,7 +71,7 @@ checksoftware() {
 	fi
 }
 
-#This functions  setup path and clone  the Lamps sftare  before building
+#This functions  setup path and clone the Lammps from git before building
 installsoftware() {
     if [ -d "$softwaredir" ]; then  # Checking directory  name enter bu user is alrady there or not.
         read -p "$softwaredir is already available, do you want to continue installation in same directory(y/n) ? " -n 1 -r  #Ask user whther you want to citinue or not overwriting directory if exist.
@@ -94,8 +94,8 @@ installsoftware() {
 }
 
 
-#This function  is doing benchmark for strong scaling  and calling function for ploting graph.
-#In this function user need to submit for how many process  he want to run for mpi task. 
+#This function  is doing benchmark for strong scaling and calling function for ploting graph.
+#In this function user need to submit for how many process user want to run for mpi task. 
 
 strongscaling(){
     dt=`date +%F_%T | tr -d :-`     # eg 20210516_011159 
@@ -168,9 +168,8 @@ scalingplot() {
 }
 
 
-
-#------Main--------
-#This part  of the script is running continuously and asking choices from user whther user want to install, Quit or Scaling .
+#------Main Module--------
+#This part  of the script is running continuously and asking choices from user whether user want to install, Quit or Scaling .
 
 while true
 do
